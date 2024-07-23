@@ -92,12 +92,7 @@ def main(opt):
 
     ## Model
     args['device'] = device
-    if opt.dataset_name == 'vanilla':
-        model = loader.load_model(args)
-    elif opt.dataset_name == 'task_grasp':
-        model = gt_loader.gt_load_model(args)
-    else:
-        raise NotImplementedError
+    model = loader.load_model(args)
 
     if opt.load_pretrain:
         model_path = './logs' + opt.pretrain_path
