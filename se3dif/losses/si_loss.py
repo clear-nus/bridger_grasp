@@ -6,9 +6,7 @@
 # ---------------------------------------------------------------
 import numpy as np
 import torch
-from theseus import SO3
 from se3dif.utils import SO3_R3
-import theseus as th
 
 def indicator_function(condition):
     # Create a tensor of zeros with the same shape as the condition

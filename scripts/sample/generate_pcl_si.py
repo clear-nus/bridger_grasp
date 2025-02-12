@@ -55,7 +55,7 @@ def get_approximated_grasp_diffusion_field(p, args, device='cpu'):
     model.set_latent(context, batch=batch)
 
     ########### 2. SET SAMPLING METHOD #############
-    generator = Grasp_SI(model, T=5, device=device)
+    generator = Grasp_SI(model, T=40, device=device)
 
     return generator, model
 
@@ -106,21 +106,12 @@ if __name__ == '__main__':
 
     args = parse_args()
 
-    EVAL_SIMULATION = args.eval_sim
-    # isaac gym has to be imported here as it is supposed to be imported before torch
-    if (EVAL_SIMULATION):
-        # Alternatively: Evaluate Grasps in Simulation:
-        from isaac_evaluation.grasp_quality_evaluation import GraspSuccessEvaluator
-
-    from theseus import SO3
     from se3dif.utils import SO3_R3
-    import theseus as th
     from se3dif.samplers.grasp_si_samplers import Grasp_SI
     import scipy.spatial.transform
     import numpy as np
     from se3dif.datasets import AcronymGraspsDirectory
     from se3dif.models.loader import load_model
-    from se3dif.samplers import ApproximatedGrasp_AnnealedLD, Grasp_AnnealedLD
     from se3dif.utils import to_numpy, to_torch
 
     import torch

@@ -1,13 +1,6 @@
-import numpy as np
 import torch
-import os, os.path as osp
 
-import theseus as th
-from theseus import SO3
-from se3dif.utils import SO3_R3
 from se3dif.losses.ddpm_loss import DDPMLoss, convert_h2x, convert_x2h
-from diffusers.schedulers.scheduling_ddpm import DDPMScheduler
-from diffusers.schedulers.scheduling_ddim import DDIMScheduler
 
 
 class Grasp_VAE():

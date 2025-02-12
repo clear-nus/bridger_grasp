@@ -1,13 +1,10 @@
 import glob
-import copy
-import time
 
 import numpy as np
 import trimesh
 
 from scipy.stats import special_ortho_group
 
-import os
 import torch
 
 from torch.utils.data import DataLoader, Dataset
@@ -16,18 +13,14 @@ import pickle
 import h5py
 from se3dif.utils import get_data_src
 
-from se3dif.utils import to_numpy, to_torch, get_grasps_src
-from mesh_to_sdf.surface_point_cloud import get_scan_view, get_hq_scan_view
+from se3dif.utils import get_grasps_src
 from mesh_to_sdf.scan import ScanPointcloud
 
-import os, sys
+import os
 
 import logging
 
-from theseus import SO3
 from se3dif.utils import SO3_R3
-import theseus as th
-
 logger = logging.getLogger("trimesh")
 logger.setLevel(logging.ERROR)
 

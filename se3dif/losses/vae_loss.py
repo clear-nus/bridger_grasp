@@ -4,14 +4,8 @@
 # This work is licensed under the NVIDIA Source Code License
 # for I2SB. To view a copy of this license, see the LICENSE file.
 # ---------------------------------------------------------------
-import numpy as np
 import torch
-from theseus import SO3
 from se3dif.utils import SO3_R3
-import theseus as th
-from diffusers.schedulers.scheduling_ddpm import DDPMScheduler
-from diffusers.schedulers.scheduling_ddim import DDIMScheduler
-from functools import partial
 import torch.nn.functional as F
 
 
