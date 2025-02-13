@@ -1,8 +1,5 @@
 import torch
 
-from se3dif.losses.ddpm_loss import DDPMLoss, convert_h2x, convert_x2h
-
-
 class Grasp_VAE():
     def __init__(self, model, batch, device='cpu', dim=3):
         self.model = model

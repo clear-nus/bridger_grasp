@@ -7,7 +7,7 @@
 
 from se3dif.samplers.grasp_vae_samplers import Grasp_VAE
 
-batch = 2000
+batch = 20
 def parse_args():
     p = configargparse.ArgumentParser()
     p.add('-c', '--config_filepath', required=False, is_config_file=True, help='Path to config file.')
@@ -67,6 +67,36 @@ def sample_pointcloud(obj_id=0, obj_class='Mug'):
     mesh = acronym_grasps.avail_obj[obj_id].load_mesh()
 
     P = mesh.sample(400)
+
+    # sampled_rot = scipy.spatial.transform.Rotation.random()
+    # rot = sampled_rot.as_matrix()
+    # rot_quat = sampled_rot.as_quat()
+    #
+    # P_mean = np.mean(P, 0)
+    # P += -P_mean
+    # P = np.einsum('mn,bn->bm', rot, P)
+    # P *= scale
+    #
+    #
+    # H = np.eye(4)
+    # H[:3,-1] = -P_mean
+    # mesh.apply_transform(H)
+    # translational_shift = copy.deepcopy(H)
+    # H = np.eye(4)
+    # H[:3,:3] = rot
+    # mesh.apply_transform(H)
+    # mesh.apply_scale(scale)
+    #
+    # # sample good grasps
+    # grasp_obj = acronym_grasps.avail_obj[obj_id]
+    # rix = np.random.randint(low=0, high=grasp_obj.good_grasps.shape[0], size=5)
+    # H_grasps = grasp_obj.good_grasps[rix, ...]
+    # H_grasps[..., :3, -1] = H_grasps[..., :3, -1] - P_mean
+    # # H = np.eye(4)
+    # # H[:3, :3] = rot
+    # H_grasps = np.einsum('mn,bnk->bmk', H, H_grasps)
+    #
+    # H_grasps[..., :3, -1] = H_grasps[..., :3, -1] * scale
 
     sampled_rot = scipy.spatial.transform.Rotation.random()
     # rot = sampled_rot.as_matrix()
@@ -185,4 +215,4 @@ if __name__ == '__main__':
     vis_H = H_grasp.squeeze()
     P *= 1 / 8
     mesh = mesh.apply_scale(1 / 8)
-    grasp_visualization.visualize_grasps(to_numpy(H_grasp), p_cloud=P, mesh=mesh)
+    grasp_visualization.visualize_grasps(to_numpy(H), p_cloud=P, mesh=mesh)

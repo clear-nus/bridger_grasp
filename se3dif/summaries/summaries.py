@@ -1,5 +1,4 @@
 from .sdf_summary import sdf_summary
-from .denoising_summary import denoising_summary
 
 
 class SummaryDict():
@@ -15,7 +14,7 @@ class SummaryDict():
 
 def get_summary(args, activate_summary=False):
     if activate_summary:
-        summaries = {'sdf': sdf_summary, 'denoising': denoising_summary}
+        summaries = {'sdf': sdf_summary}
     else:
         summaries = {}
     summary_dict = SummaryDict(summaries=summaries)

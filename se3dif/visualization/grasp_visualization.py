@@ -43,25 +43,26 @@ def create_gripper_marker(color=[0, 0, 255], tube_radius=0.001, sections=6, scal
         segment=[[-4.100000e-02*scale, 0, 6.59999996e-02*scale], [4.100000e-02*scale, 0, 6.59999996e-02*scale]],
     )
 
-    x_axis = trimesh.creation.cylinder(
-        radius=0.004*scale,
-        sections=sections,
-        segment=[[0, 0, 0*scale], [2.100000e-02*scale, 0, 0]],
-    )
+    # x_axis = trimesh.creation.cylinder(
+    #     radius=0.004*scale,
+    #     sections=sections,
+    #     segment=[[0, 0, 0*scale], [2.100000e-02*scale, 0, 0]],
+    # )
+    #
+    # y_axis = trimesh.creation.cylinder(
+    #     radius=0.004 * scale,
+    #     sections=sections,
+    #     segment=[[0, 0, 0 * scale], [0, 4.100000e-02 * scale, 0]],
+    # )
+    #
+    # z_axis = trimesh.creation.cylinder(
+    #     radius=0.004 * scale,
+    #     sections=sections,
+    #     segment=[[0, 0, 0 * scale], [0, 0, 6.100000e-02 * scale]],
+    # )
 
-    y_axis = trimesh.creation.cylinder(
-        radius=0.004 * scale,
-        sections=sections,
-        segment=[[0, 0, 0 * scale], [0, 4.100000e-02 * scale, 0]],
-    )
-
-    z_axis = trimesh.creation.cylinder(
-        radius=0.004 * scale,
-        sections=sections,
-        segment=[[0, 0, 0 * scale], [0, 0, 6.100000e-02 * scale]],
-    )
-
-    tmp = trimesh.util.concatenate([cb1, cb2, cfr, cfl, x_axis, y_axis, z_axis])
+    # tmp = trimesh.util.concatenate([cb1, cb2, cfr, cfl, x_axis, y_axis, z_axis])
+    tmp = trimesh.util.concatenate([cb1, cb2, cfr, cfl])
     tmp.visual.face_colors = color
 
     return tmp

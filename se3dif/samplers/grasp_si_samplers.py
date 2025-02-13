@@ -1,10 +1,6 @@
 import numpy as np
 import torch
-import os, os.path as osp
 
-import theseus as th
-from theseus import SO3
-from se3dif.utils import SO3_R3
 from se3dif.losses.si_loss import unsqueeze_xdim, StochasticInterpolantsLoss, convert_h2x, convert_x2h
 
 
