@@ -27,6 +27,24 @@ To generate grasp samples
 e.g. python scripts/sample/generate_pcl_si.py --prior_type heuristic
 ```
 
+To use the provided model checkpoint, you need to unzip the `pcl_heuristic.zip` file in the appropriate directory.
+
+```commandline
+bridger_grasp
+...
+data
+└── models/
+    └── pcl_heuristic/
+        ├── model.pth  # (Example: Model checkpoint file)
+        ├── params.json   # (Example: Metadata related to the model)
+
+```
+
+Then, run
+```
+python scripts/sample/generate_pcl_si.py --prior_type heuristic
+```
+
 ## BibTeX
 
 To cite this work, please use:
